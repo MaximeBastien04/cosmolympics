@@ -5,42 +5,31 @@ using UnityEngine;
 public class PlanetSpawner : MonoBehaviour
 {
     public GameObject planetPrefab;
-    public Transform player;
-    public float spawnDistance = 5f;
-    public int maxPlanets = 5;
-    private Queue<GameObject> planets = new Queue<GameObject>();
+    public float spawnInterval = 2f; // Time between spawns
+    public float spawnHeight = 10f;  // Distance above the last planet
+    public float startSpawnHeight = 1f;
+
+    private Transform lastPlanet;
 
     void Start()
     {
-        for (int i = 0; i < maxPlanets; i++)
+        SpawnPlanet(Vector2.up*startSpawnHeight); // Spawn first planet at (0,0)
+        InvokeRepeating(nameof(SpawnNextPlanet), spawnInterval, spawnInterval);
+    }
+
+    void SpawnNextPlanet()
+    {
+        if (lastPlanet != null)
         {
-            if (i != 0) // Skip the first planet
-            {
-                SpawnPlanet(i * spawnDistance);
-            }
+            Vector2 spawnPosition = new Vector2(Random.Range(-2.5f, 2.5f), lastPlanet.position.y + spawnHeight);
+            SpawnPlanet(spawnPosition);
         }
     }
 
-    void Update()
+    void SpawnPlanet(Vector2 position)
     {
-        if (player.position.y > planets.Peek().transform.position.y + spawnDistance)
-        {
-            RecyclePlanet();
-        }
-    }
-
-    void SpawnPlanet(float yOffset)
-    {
-        Vector3 spawnPosition = new Vector3(Random.Range(-2f, 2f), yOffset, 0);
-        GameObject newPlanet = Instantiate(planetPrefab, spawnPosition, Quaternion.identity);
-        planets.Enqueue(newPlanet);
-    }
-
-    void RecyclePlanet()
-    {
-        GameObject oldPlanet = planets.Dequeue();
-        float newY = planets.Last().transform.position.y + spawnDistance;
-        oldPlanet.transform.position = new Vector3(Random.Range(-2f, 2f), newY, 0);
-        planets.Enqueue(oldPlanet);
+        GameObject newPlanet = Instantiate(planetPrefab, position, Quaternion.identity);
+        newPlanet.AddComponent<PlanetRotator>(); // Add rotation script to each new planet
+        lastPlanet = newPlanet.transform;
     }
 }

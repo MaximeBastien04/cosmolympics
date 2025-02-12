@@ -181,7 +181,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fa69b8d4b21756e44b28912486954f98, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7882353}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.85882354}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -569,7 +569,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: bb6b23dc588b6054da88e3b89eb98633, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -689,7 +689,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2030341888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -703,9 +703,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planetPrefab: {fileID: 5504551572153580731, guid: ded28d23d74d2c742b05e9e5a5d80035, type: 3}
-  player: {fileID: 1868980529}
-  spawnDistance: 2.5
-  maxPlanets: 10
+  spawnInterval: 2
+  spawnHeight: 3.5
+  startSpawnHeight: 3
 --- !u!4 &2030341889
 Transform:
   m_ObjectHideFlags: 0
@@ -769,13 +769,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4683616092851257520, guid: ded28d23d74d2c742b05e9e5a5d80035, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5504551572153580731, guid: ded28d23d74d2c742b05e9e5a5d80035, type: 3}
       propertyPath: m_Name
       value: FirstPlanet
-      objectReference: {fileID: 0}
-    - target: {fileID: 5504551572153580731, guid: ded28d23d74d2c742b05e9e5a5d80035, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
