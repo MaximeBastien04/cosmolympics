@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
     private bool isAttachedToPlanet = true;
 
     [SerializeField] private CameraFollow cameraFollowScript;
+    [SerializeField] private ScoreManager scoreManager;
 
     void Start()
     {
@@ -17,7 +18,6 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(isAttachedToPlanet);
         if (Input.GetMouseButtonDown(0) && isAttachedToPlanet) // Only jump if not attached
         {
             Jump();
@@ -38,6 +38,8 @@ public class PlayerScript : MonoBehaviour
 
             // Rotate the player by 180 degrees around the Z-axis
             transform.Rotate(0f, 0f, 180f);
+
+            scoreManager.IncreaseScore();
         }
     }
 
@@ -46,7 +48,7 @@ public class PlayerScript : MonoBehaviour
         isAttachedToPlanet = true;
         rb.linearVelocity = Vector2.zero; // Stop Movement
         transform.SetParent(planet); // Makes the players a child of the planet
-        
+
         // Update the camera's target to be the player's new parent (the planet)
         if (cameraFollowScript != null)
         {
