@@ -6,7 +6,7 @@ public class PlanetSpawner : MonoBehaviour
 {
     public GameObject planetPrefab;
     public Transform player;
-    public float spawnDistance = 10f;
+    public float spawnDistance = 5f;
     public int maxPlanets = 5;
     private Queue<GameObject> planets = new Queue<GameObject>();
 
@@ -14,7 +14,10 @@ public class PlanetSpawner : MonoBehaviour
     {
         for (int i = 0; i < maxPlanets; i++)
         {
-            SpawnPlanet(i * spawnDistance);
+            if (i != 0) // Skip the first planet
+            {
+                SpawnPlanet(i * spawnDistance);
+            }
         }
     }
 
