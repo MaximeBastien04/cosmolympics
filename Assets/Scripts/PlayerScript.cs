@@ -7,6 +7,8 @@ public class PlayerScript : MonoBehaviour
     private Rigidbody2D rb;
     private bool isAttachedToPlanet = true;
 
+    [SerializeField] private CameraFollow cameraFollowScript;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -44,5 +46,11 @@ public class PlayerScript : MonoBehaviour
         isAttachedToPlanet = true;
         rb.linearVelocity = Vector2.zero; // Stop Movement
         transform.SetParent(planet); // Makes the players a child of the planet
+        
+        // Update the camera's target to be the player's new parent (the planet)
+        if (cameraFollowScript != null)
+        {
+            cameraFollowScript.SetTarget(planet); // Pass the new target to the CameraFollow script
+        }
     }
 }
