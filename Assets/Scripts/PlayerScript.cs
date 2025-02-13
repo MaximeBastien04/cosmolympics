@@ -7,6 +7,7 @@ public class PlayerScript : MonoBehaviour
     public float moveSpeed = 5f;
 
     private Rigidbody2D rb;
+    private AudioSource audioSource;
     private bool isAttachedToPlanet = true;
     [SerializeField] private Animator scoreText;
     [SerializeField] private Animator startText;
@@ -18,6 +19,8 @@ public class PlayerScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -50,6 +53,7 @@ public class PlayerScript : MonoBehaviour
             // Rotate the player by 180 degrees around the Z-axis
             transform.Rotate(0f, 0f, 180f);
 
+            audioSource.Play();
             scoreManager.IncreaseScore();
         }
     }
