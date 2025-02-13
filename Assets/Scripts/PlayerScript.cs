@@ -8,7 +8,9 @@ public class PlayerScript : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isAttachedToPlanet = true;
+    [SerializeField] private Animator scoreText;
     [SerializeField] private Animator startText;
+    [SerializeField] private GameObject startPlatform;
     [SerializeField] private CameraFollow cameraFollowScript;
     [SerializeField] private ScoreManager scoreManager;
 
@@ -28,6 +30,8 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && scoreManager.score == 0)
         {
             startText.SetTrigger("fadeOut");
+            scoreText.SetTrigger("fadeIn");
+            startPlatform.SetActive(false);
         }
     }
 

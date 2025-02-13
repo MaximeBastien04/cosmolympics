@@ -63,7 +63,7 @@ public class PlanetSpawner : MonoBehaviour
         }
 
         // Increase rotation speed slightly based on score
-        float newRotationSpeed = 30f + (scoreManager.score * rotationSpeedMultiplier); // Adjust multiplier as needed
+        float newRotationSpeed = rotator.rotationSpeed + (scoreManager.score * rotationSpeedMultiplier); // Adjust multiplier as needed
         rotator.SetRotationSpeed(newRotationSpeed);
 
 
