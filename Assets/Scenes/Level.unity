@@ -1626,7 +1626,13 @@ MonoBehaviour:
   planetPrefab: {fileID: 5504551572153580731, guid: ded28d23d74d2c742b05e9e5a5d80035, type: 3}
   spawnHeight: 3.5
   startSpawnHeight: 3
-  maxPlanets: 10
+  maxPlanets: 6
+  planetSprites:
+  - {fileID: 21300000, guid: d3dab394bad708c4181b264a7f771340, type: 3}
+  - {fileID: 21300000, guid: 1fd7bd8821acf3c4da5f16e028622165, type: 3}
+  - {fileID: 21300000, guid: e80008da67108a6408eb0b270b2b3a5c, type: 3}
+  - {fileID: 21300000, guid: d7cd0d31bd3bdda49ab7b3205ff42b71, type: 3}
+  - {fileID: 21300000, guid: b0fbcebec4e4d874eb752c9fe13669e2, type: 3}
   planetParent: {fileID: 889312451}
   scoreManager: {fileID: 1384896156}
 --- !u!4 &2030341889

@@ -8,6 +8,8 @@ public class PlanetSpawner : MonoBehaviour
     public float spawnHeight = 10f;  // Distance above the last planet
     public float startSpawnHeight = 1f;
     public int maxPlanets = 10;
+    public int minScoreForPlanetDestroy = 4;
+    public Sprite[] planetSprites;
 
     private List<GameObject> spawnedPlanets = new List<GameObject>();
     private Transform lastPlanet;
@@ -28,7 +30,7 @@ public class PlanetSpawner : MonoBehaviour
 
     void Update()
     {
-        if (scoreManager.score > lastCheckedScore && scoreManager.score > 3)
+        if (scoreManager.score > lastCheckedScore && scoreManager.score > minScoreForPlanetDestroy)
         {
             lastCheckedScore = scoreManager.score;
             ManagePlanets();
@@ -50,6 +52,14 @@ public class PlanetSpawner : MonoBehaviour
     {
         GameObject newPlanet = Instantiate(planetPrefab, position, Quaternion.identity, planetParent); // Assign parent
         newPlanet.AddComponent<PlanetRotator>(); // Add rotation script
+
+        // Assign a random sprite
+        SpriteRenderer sr = newPlanet.GetComponent<SpriteRenderer>();
+        if (sr != null && planetSprites.Length > 0)
+        {
+            sr.sprite = planetSprites[Random.Range(0, planetSprites.Length)];
+        }
+
         spawnedPlanets.Add(newPlanet);
         lastPlanet = newPlanet.transform;
     }
