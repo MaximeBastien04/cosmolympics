@@ -1,12 +1,14 @@
 using NUnit.Framework;
+using TMPro;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
     public float moveSpeed = 5f;
+
     private Rigidbody2D rb;
     private bool isAttachedToPlanet = true;
-
+    [SerializeField] private Animator startText;
     [SerializeField] private CameraFollow cameraFollowScript;
     [SerializeField] private ScoreManager scoreManager;
 
@@ -21,6 +23,11 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && isAttachedToPlanet) // Only jump if not attached
         {
             Jump();
+        }
+
+        if (Input.GetMouseButtonDown(0) && scoreManager.score == 0)
+        {
+            startText.SetTrigger("fadeOut");
         }
     }
 
