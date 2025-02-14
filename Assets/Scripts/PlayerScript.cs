@@ -15,6 +15,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private GameObject startPlatform;
     [SerializeField] private CameraFollow cameraFollowScript;
     [SerializeField] private ScoreManager scoreManager;
+    [SerializeField] private AudioClip planetHitSFX;
 
     void Start()
     {
@@ -56,6 +57,7 @@ public class PlayerScript : MonoBehaviour
         {
             AttachToPlanet(other.transform);
 
+            audioSource.clip = planetHitSFX;
             audioSource.Play();
             scoreManager.IncreaseScore();
         }

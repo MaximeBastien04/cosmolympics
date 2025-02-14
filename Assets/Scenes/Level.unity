@@ -974,6 +974,8 @@ MonoBehaviour:
   deathText: {fileID: 1036023174}
   scoreText: {fileID: 156635735}
   planetsParent: {fileID: 889312451}
+  audioSource: {fileID: 1868980533}
+  gameOverSFX: {fileID: 8300000, guid: 14bf1fef4fb72964c8c2da2154ce7fa9, type: 3}
 --- !u!61 &745052154
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1897,6 +1899,7 @@ MonoBehaviour:
   startPlatform: {fileID: 538198111}
   cameraFollowScript: {fileID: 519420033}
   scoreManager: {fileID: 1384896156}
+  planetHitSFX: {fileID: 8300000, guid: 3ff2b6f7f6175da4dae332658b785c99, type: 3}
 --- !u!50 &1868980531
 Rigidbody2D:
   serializedVersion: 5
@@ -2090,7 +2093,7 @@ MonoBehaviour:
   planetPrefab: {fileID: 5504551572153580731, guid: ded28d23d74d2c742b05e9e5a5d80035, type: 3}
   spawnHeight: 3.5
   startSpawnHeight: 3
-  rotationSpeedMultiplier: 20
+  rotationSpeedMultiplier: 5
   maxPlanets: 5
   minScoreForPlanetDestroy: 4
   planetSprites:
