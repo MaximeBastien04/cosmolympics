@@ -16,6 +16,9 @@ public class PlanetSpawner : MonoBehaviour
     private Transform lastPlanet;
     public Transform planetParent;
 
+
+    [SerializeField] GameObject meteor;
+    [SerializeField] GameObject firstPlanet;
     [SerializeField] private ScoreManager scoreManager;
     private int lastCheckedScore = 0;
 
@@ -43,6 +46,11 @@ public class PlanetSpawner : MonoBehaviour
         if (spawnedPlanets.Count >= maxPlanets)
         {
             DestroyOldestPlanet();
+        }
+        if (spawnedPlanets.Count < maxPlanets)
+        {
+            meteor.SetActive(false);
+            firstPlanet.SetActive(false);
         }
 
         Vector2 spawnPosition = new Vector2(Random.Range(-2f, 2f), lastPlanet.position.y + spawnHeight);
