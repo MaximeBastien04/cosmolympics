@@ -1,0 +1,3 @@
+C:\Users\maxba\OneDrive\Documents\Multimedia\2024-2025\sem 2\Stage\Games\Space Jump\space-jump\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\maxba\OneDrive\Documents\Multimedia\2024-2025\sem 2\Stage\Games\Space Jump\space-jump\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\FramePacing\CMakeLists.txt
+C:\Users\maxba\OneDrive\Documents\Multimedia\2024-2025\sem 2\Stage\Games\Space Jump\space-jump\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt
